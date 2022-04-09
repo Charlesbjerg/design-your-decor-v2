@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans font-bold mb-4;
+}
+h1 {
+  @apply text-5xl;
+}
+h2 {
+  @apply text-4xl;
+}
+h3 {
+  @apply text-3xl;
+}
+h4 {
+  @apply text-2xl;
+}
+h5 {
+  @apply text-xl;
+}
+h6 {
+  @apply text-lg;
+}
+
+.container {
+  @apply w-full px-8 max-w-screen-2xl;
+}
+
+.nav-link {
+  @apply inline-block relative text-lg font-bold font-sansSerif py-6 px-4 mx-2;
+}
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 1.75rem;
+  left: 0.75rem;
+  z-index: -1;
+  display: block;
+  width: calc(100% - 1.5rem);
+  height: 0.6rem;
+  pointer-events: none;
+  background-color: theme('colors.salmon');
+  opacity: 0.5;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+  transition: 0.3s ease-in-out;
+}
+.nav-link:hover::before {
+  transform: scaleY(1);
+}
