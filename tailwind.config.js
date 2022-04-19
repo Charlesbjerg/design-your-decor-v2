@@ -32,6 +32,7 @@ module.exports = {
             'white': '#fff',
             'grey': '#D3D1CB',
             'salmon': '#fa8072',
+            'black': '#000',
         },
     },
     variants: {},

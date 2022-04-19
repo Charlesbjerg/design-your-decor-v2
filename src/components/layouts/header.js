@@ -1,5 +1,5 @@
 import { Link, graphql } from 'gatsby';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
 export const query = graphql`
@@ -15,7 +15,6 @@ export const query = graphql`
 `;
 
 const Header = () => {
-  const nav = useRef(null);
   const [navOpen, setNavOpen] = useState(false);
   return (
     <header className='w-full sticky top-0 left-0 z-50 bg-white'>
@@ -29,7 +28,7 @@ const Header = () => {
           />
         </Link>
         <nav className={`nav ${navOpen ? 'actice' : ''}`}>
-          <button class='hidden' onClick={() => setNavOpen(false)}>Close</button>
+          <button className='hidden' onClick={() => setNavOpen(false)}>Close</button>
           <Link to='/how-it-works/' className='nav-link'>How It Works</Link>
           {/* Add Services Dropdown */}
           <Link to='/products/how-to-look-after-your-mental-with-your-interior/' className='nav-link'>Workshops</Link>
