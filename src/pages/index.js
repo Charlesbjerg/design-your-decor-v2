@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import LandingImage from "../components/cms/LandingImage"
+import ContentCenter from "../components/cms/ContentCenter"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -12,6 +13,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="Design Your Decor: Homepage" />
       <LandingImage />
+      <ContentCenter />
     </Layout>
   )
 }

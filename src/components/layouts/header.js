@@ -18,7 +18,7 @@ const Header = () => {
   const nav = useRef(null);
   const [navOpen, setNavOpen] = useState(false);
   return (
-    <header className='w-full sticky top-0 left-0 z-10 bg-white'>
+    <header className='w-full sticky top-0 left-0 z-50 bg-white'>
       <div className='container flex items-center justify-between'>
         <Link to='/'>
           <StaticImage

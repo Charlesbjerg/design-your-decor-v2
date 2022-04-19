@@ -29,7 +29,7 @@ h6 {
 }
 
 .nav-link {
-  @apply inline-block relative text-lg font-bold font-sansSerif py-6 px-4 mx-2;
+  @apply inline-block relative text-lg font-bold font-sans py-6 px-4 mx-2;
 }
 .nav-link::before {
   content: '';
@@ -83,5 +83,21 @@ h6 {
   width: 100vw;
   height: 100vh;
   max-width: unset;
-  
+}
+.title-highlight {
+  position: relative;
+  display: inline-block;
+}
+.title-highlight::before {
+  content: '';
+  position: absolute;
+  bottom: 0.25rem;
+  left:   0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 0.6rem;
+  pointer-events: none;
+  background-color: theme('colors.salmon');
+  opacity: 0.5;
 }

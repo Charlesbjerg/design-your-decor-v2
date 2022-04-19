@@ -13,7 +13,7 @@ const LandingImage = () => {
                 />
             </figure>
             <div className='absolute top-0 left-0 z-10 w-full h-full flex items-center justify-center'>
-                <div className='p-8 bg-white text-center'>
+                <div className='p-12 bg-white text-center max-w-3xl'>
                     <h1>Welcome to Design Your Decor</h1>
                     <p>Professional and affordable interior design inspired by you for you. The easiest way to create a home that reflects your style.</p>
                 </div>
