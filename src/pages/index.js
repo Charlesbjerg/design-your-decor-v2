@@ -5,6 +5,7 @@ import Seo from "../components/seo"
 import LandingImage from "../components/cms/LandingImage"
 import ContentCenter from "../components/cms/ContentCenter"
 import ImageCard from "../components/cms/ImageCard"
+import Services from "../components/cms/Services"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -25,6 +26,7 @@ const BlogIndex = ({ data, location }) => {
                    link="/our-services/"
                    linkText="See Individuals" />
       </div>
+      <Services />
     </Layout>
   )
 }

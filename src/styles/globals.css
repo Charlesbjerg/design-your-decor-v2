@@ -107,3 +107,42 @@ h6 {
 .btn-transparent {
   @apply bg-opacity-0 border-white border-2 border-solid px-4 py-2 transition-all hover:bg-white hover:text-black;
 }
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: #000;
+  transition: 0.3s ease-in-out;
+}
+.social-icon:hover {
+  background-color: #bbb;
+  box-shadow: 0px 8px 17px 2px rgba(256,256,256,0.14) , 0px 3px 14px 2px rgba(256,256,256,0.12) , 0px 5px 5px -3px rgba(256,256,256,0.2) ;
+}
+
+.service-card {
+  background-color: #fff;
+  color: #000;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.service-card--accent {
+  border: 5px solid theme('colors.salmon');
+}
+
+.service-card-btn {
+  padding: 0.25rem;
+  background-color: theme('colors.salmon');
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: block;
+  text-align: center;
+  color: #fff;
+}

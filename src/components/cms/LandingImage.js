@@ -3,8 +3,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 const LandingImage = () => {
     return (
-        <section className='relative w-full h-full'>
-            <figure>
+        <section className='relative w-full h-screen'>
+            <figure className='h-screen'>
                 <StaticImage
                 src="../../../content/images/dyd-landing-image.jpg"
                 alt="Decorated Lounge"
