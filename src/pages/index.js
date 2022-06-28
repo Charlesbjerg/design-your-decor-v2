@@ -1,57 +1,54 @@
 import * as React from "react"
+
 import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import useStoryblok from "../lib/storyblok"
+import { sbEditable } from "@storyblok/storyblok-editable"
+import DynamicComponent from "../components/dynamicComponent"
+
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import LandingImage from "../components/cms/LandingImage"
-import ContentCenter from "../components/cms/ContentCenter"
-import ImageCard from "../components/cms/ImageCard"
-import Services from "../components/cms/Services"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+const IndexPage = ({ data, location }) => {
+  let story = data.storyblokEntry
+  story = useStoryblok(story, location)
+
+  const components = story.content.body.map(blok => {
+    return (<DynamicComponent blok={blok} key={blok._uid} />)
+  })
+
+  const image = getImage(data.image1)
+
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="Design Your Decor: Homepage" />
-      <LandingImage />
-      <ContentCenter />
-      <div className="grid md:grid-cols-2">
-        <ImageCard title="Packages" 
-                   content="Professional design packages that are inspired by your personality and preferences from £40."
-                   image="kitchen.jpg"
-                   link="/our-services/"
-                   linkText="See Packages" />
-        <ImageCard title="Individuals" 
-                   content="A range of bespoke individual design tools for you to select for your convivence from £25."
-                   image="paint-samples.jpg"
-                   link="/our-services/"
-                   linkText="See Individuals" />
+    <Layout>
+      <div {...sbEditable(story.content)}>
+        <Seo title="Home" />
+        <h1>{story.content.title}</h1>
+        {components}
+        <GatsbyImage image={image} />
       </div>
-      <Services />
     </Layout>
   )
 }
 
-export default BlogIndex
+export default IndexPage
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+export const query = graphql`
+  query HomeQuery {
+    storyblokEntry(full_slug: {eq: "home"}) {
+      content
+      name
+    },
+    image1: file(name: {eq: "image-1"}) {
+      name
+      absolutePath
+      childImageSharp {
+        gatsbyImageData(
+          width: 500
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
+    },
   }
 `
